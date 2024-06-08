@@ -10,10 +10,10 @@ domain=$1
 port=$2
 
 # Replace . and - in the domain with _
-DOMAIN_CLEAN=$(echo "$domain" | sed 's/[.-]/_/g')
+domain_CLEAN=$(echo "$domain" | sed 's/[.-]/_/g')
 
 # Replace original domain value with cleaned one
-DOMAIN="$domain_CLEAN"
+domain="$domain_CLEAN"
 
 echo "The domain name is cleaned up to be $domain"
 
@@ -23,8 +23,8 @@ source .env || {
 }
 
 # Derive volume name and DB name from container name
-VOLUME_NAME="${DOMAIN}_data"
-DB_NAME="${DOMAIN}DB"
+VOLUME_NAME="${domain}_data"
+DB_NAME="${domain}DB"
 
 compose_content=$(cat <<EOF
 version: "3.8"
@@ -69,7 +69,7 @@ networks:
 EOF
 )
 
-compose_file="${DOMAIN}-compose.yml"
+compose_file="${domain}-compose.yml"
 
 echo "$compose_content" > "$compose_file"
 
