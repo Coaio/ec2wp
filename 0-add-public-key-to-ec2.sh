@@ -18,10 +18,3 @@ echo $PUBLIC_KEY >> /home/$USERNAME/.ssh/authorized_keys
 chmod 700 /home/$USERNAME/.ssh
 chmod 600 /home/$USERNAME/.ssh/authorized_keys
 chown -R $USERNAME:$USERNAME /home/$USERNAME/.ssh
-
-# Add permission to run other scripts
-
-chmod +x 1-install-infra.sh
-chmod +x 2-init-infra.sh
-chmod +x 3-add-instance.sh
-chmod +x 4-add-nginx-config.sh
