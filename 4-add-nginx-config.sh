@@ -70,6 +70,9 @@ server {
     listen 80;
     server_name $domain;
 
+    # Increase the client max body size
+    client_max_body_size 50M;
+
     # Required for Certbot authentication
     location ~ /.well-known/acme-challenge {
         allow all;
@@ -86,6 +89,9 @@ server {
 server {
 
     server_name $domain;
+
+    # Increase the client max body size
+    client_max_body_size 50M;
 
     location / {
         proxy_pass http://localhost:$port;
